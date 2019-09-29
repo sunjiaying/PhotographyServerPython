@@ -50,4 +50,4 @@ def thumbnail(filename):
     resp = Response(open(thumbnail_filename, 'rb'), mimetype="image/jpeg")
     return resp
 
-app.run()
+app.run(host='0.0.0.0', port=3000)
