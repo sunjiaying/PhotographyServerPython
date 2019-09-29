@@ -49,3 +49,5 @@ def thumbnail(filename):
     thumbnail_filename = get_thumbnail(path, '200x200', crop='center').url
     resp = Response(open(thumbnail_filename, 'rb'), mimetype="image/jpeg")
     return resp
+
+app.run()

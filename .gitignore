@@ -2,3 +2,6 @@
 __pycache__/
 thumbnails-cache/
 thumbs.db
+dist/
+build/
+server.spec

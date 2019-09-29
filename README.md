@@ -13,6 +13,15 @@ pip install python-thumbnails
 
 ## 启动运行
 ```bash
-export FLASK_APP=server.py
-flask run
+python server.py
+```
+
+## 编译成exe
+需要先安装pyinstaller
+```bash
+pip install pyinstaller
+```
+
+```bash
+pyinstaller -c -F server.py --hidden-import thumbnails.cache_backends --hidden-import thumbnails.storage_backends
 ```
