@@ -10,6 +10,9 @@ pip install flask
 pip install pillow
 pip install python-thumbnails
 ```
+加上
+-i https://pypi.tuna.tsinghua.edu.cn/simple
+可以进行安装加速
 
 ## 启动运行
 ```bash
