@@ -5,8 +5,9 @@ from thumbnails import get_thumbnail
 from io import BytesIO
 from thumbnails.conf import settings
 
+port = 3000
 rootpath = os.path.join(os.getcwd(), 'images')
-baseurl = 'http://localhost:5000'
+baseurl = 'http://localhost:' + str(port)
 
 settings.THUMBNAIL_PATH = os.path.join(os.getcwd(), 'thumbnails-cache')
 settings.THUMBNAIL_URL = os.path.join(os.getcwd(), 'thumbnails-cache')
@@ -50,4 +51,4 @@ def thumbnail(filename):
     resp = Response(open(thumbnail_filename, 'rb'), mimetype="image/jpeg")
     return resp
 
-app.run(host='0.0.0.0', port=3000)
+app.run(host='0.0.0.0', port=port)
