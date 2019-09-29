@@ -1,16 +1,18 @@
 from flask import Response, Flask, request, send_file
 import json
-import os
+import os, sys
 from thumbnails import get_thumbnail
 from io import BytesIO
 from thumbnails.conf import settings
 
+
+execpath = os.path.dirname(os.path.realpath(sys.argv[0]))
 port = 3000
-rootpath = os.path.join(os.getcwd(), 'images')
+rootpath = os.path.join(execpath, 'images')
 baseurl = 'http://localhost:' + str(port)
 
-settings.THUMBNAIL_PATH = os.path.join(os.getcwd(), 'thumbnails-cache')
-settings.THUMBNAIL_URL = os.path.join(os.getcwd(), 'thumbnails-cache')
+settings.THUMBNAIL_PATH = os.path.join(execpath, 'thumbnails-cache')
+settings.THUMBNAIL_URL = os.path.join(execpath, 'thumbnails-cache')
 
 # 定义返回的数据结构 Photo.class
 class Photo:
