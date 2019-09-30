@@ -4,12 +4,13 @@ import os, sys
 from thumbnails import get_thumbnail
 from io import BytesIO
 from thumbnails.conf import settings
-
+import numpy as np
 
 execpath = os.path.dirname(os.path.realpath(sys.argv[0]))
 port = 3000
 rootpath = os.path.join(execpath, 'images')
 baseurl = 'http://localhost:' + str(port)
+top = 50
 
 settings.THUMBNAIL_PATH = os.path.join(execpath, 'thumbnails-cache')
 settings.THUMBNAIL_URL = os.path.join(execpath, 'thumbnails-cache')
@@ -32,10 +33,15 @@ def projects():
 def list():
     data = []
     for root, dirs, files in os.walk(rootpath):
-      for file in files:
+      files1 = np.array(files)
+      files1.sort()
+      for file in reversed(files1):       
         if os.path.splitext(file)[1].upper() == '.JPG': 
           filename = os.path.join(root, file)
           data.append(Photo(file).__dict__)
+        
+        if data.__len__() >= top:
+          break
     
     return json.dumps(data)
 
