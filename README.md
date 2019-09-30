@@ -9,6 +9,7 @@
 pip install flask
 pip install pillow
 pip install python-thumbnails
+pip install numpy
 ```
 加上
 -i https://pypi.tuna.tsinghua.edu.cn/simple
