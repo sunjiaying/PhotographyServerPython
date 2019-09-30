@@ -26,5 +26,5 @@ pip install pyinstaller
 ```
 
 ```bash
-pyinstaller -c -F server.py --hidden-import thumbnails.cache_backends --hidden-import thumbnails.storage_backends
+pyinstaller -c -F server.py --hidden-import thumbnails.cache_backends --hidden-import thumbnails.storage_backends --hidden-import numpy.core._dtype_ctypes
 ```
