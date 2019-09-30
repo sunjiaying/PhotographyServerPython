@@ -5,6 +5,7 @@ from thumbnails import get_thumbnail
 from io import BytesIO
 from thumbnails.conf import settings
 import numpy as np
+from flask_cors import CORS
 
 execpath = os.path.dirname(os.path.realpath(sys.argv[0]))
 port = 3000
@@ -59,4 +60,5 @@ def thumbnail(filename):
     resp = Response(open(thumbnail_filename, 'rb'), mimetype="image/jpeg")
     return resp
 
+CORS(app)
 app.run(host='0.0.0.0', port=port)

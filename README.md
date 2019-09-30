@@ -7,6 +7,7 @@
 ## 安装依赖环境
 ```bash
 pip install flask
+pip install flask_cors
 pip install pillow
 pip install python-thumbnails
 pip install numpy
