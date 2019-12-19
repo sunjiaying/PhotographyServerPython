@@ -56,7 +56,7 @@ def original(filename):
 def thumbnail(filename):
     path = rootpath + "/%s" % filename
     # print(path)
-    thumbnail_filename = get_thumbnail(path, '200x200', crop='center').url
+    thumbnail_filename = get_thumbnail(path, '200x200', crop='center', force=True).url
     resp = Response(open(thumbnail_filename, 'rb'), mimetype="image/jpeg")
     return resp
 
